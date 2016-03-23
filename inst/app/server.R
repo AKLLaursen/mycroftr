@@ -28,6 +28,19 @@ shinyServer(function(input, output, session) {
     do.call(tagList, plot_output_list)
   })
 
+  output$returns <- renderUI({
+
+    return_output_list <- lapply(1:(data_stock() %>% length), function(x) {
+
+      return_name <- paste("return", x, sep = "_")
+      valueBoxOutput(return_name, width = floor(12 / (data_stock() %>%
+                                                        length())))
+
+    })
+
+    do.call(tagList, return_output_list)
+  })
+
   # Call renderPlot for each plot. Plots are only actually generated when they
   # are visible on the web page.
   observe({
@@ -41,6 +54,7 @@ shinyServer(function(input, output, session) {
         x_local <- x
 
         plotname <- paste("plot", x_local, sep = "_")
+        return_name <- paste("return", x_local, sep = "_")
 
         output[[plotname]] <- renderHighchart({
 
@@ -55,6 +69,31 @@ shinyServer(function(input, output, session) {
           }
 
         })
+
+        output[[return_name]] <- renderValueBox({
+
+          ret_t <- data_stock()[[x_local]] %>%
+            last() %>%
+            `$`("Close")
+          ret_t1 <- data_stock()[[x_local]] %>%
+            lag.xts() %>%
+            last() %>%
+            `$`("Close")
+
+          out_return <- paste0(round((ret_t - ret_t1) / ret_t1 * 100, 2), "%")
+
+          text <- paste(data_stock()[x_local] %>%
+                          names(),
+                        data_stock()[[x_local]] %>%
+                          index() %>%
+                          max(),
+                        sep = " - ")
+
+          valueBox(out_return, text, width = floor(12 / (data_stock() %>%
+                                                           length())))
+        })
+
+
       })
     }
   })

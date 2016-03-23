@@ -2,6 +2,7 @@ library(shiny)
 library(shinydashboard)
 library(Quandl)
 library(highcharter)
+library(xts)
 
 library(mycroftr)
 

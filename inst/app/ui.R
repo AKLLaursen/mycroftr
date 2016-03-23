@@ -48,6 +48,7 @@ dashboardPage(
                   12,
                   h1("Stocks", align = "center")
                 ),
+                uiOutput("returns"),
                 column(
                   6,
                   selectInput("stock_type",
