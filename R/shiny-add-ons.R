@@ -40,3 +40,15 @@ loading_indicator <- function(wait_text = "Data is being loaded",
       )
   )
 }
+
+#' Launch app by going to the Diogenes Club
+#'
+#' @export
+#'
+go_to_the_diogenes_club <- function() {
+
+  mycroft <- system.file("app", package = "mycroftr")
+
+  shiny::runApp(mycroft)
+
+}
