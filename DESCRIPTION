@@ -1,0 +1,19 @@
+Package: mycroftr
+Type: Package
+Version: 0.1
+Title: A pacage supporting a packeged app presenting all maners of economics
+    facts and variables in an orderly manner.
+Description: This package contains supporting functioins for the app mycroft
+    packaged with the package. The puporse of the app is to build a dashboard
+    containing all maners of economic and finansial facts, figures and
+    summaries.
+Author: person("Andreas Keller Leth", "Laursen", ,"andreas.keller@gmail.com", c("aut", "cre"))
+Depends:
+    R
+Imports:
+    magrittr,
+    shiny,
+    highcharter
+License: MIT + file LICENCE
+LazyData: TRUE
+RoxygenNote: 5.0.1
