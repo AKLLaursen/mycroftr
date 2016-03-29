@@ -50,7 +50,7 @@ dashboardPage(
                 ),
                 uiOutput("returns"),
                 column(
-                  6,
+                  4,
                   selectInput("stock_type",
                               "Select chart type",
                               c("Line Plot", "Candlestick"),
@@ -58,11 +58,17 @@ dashboardPage(
                               width = "100%")
                 ),
                 column(
-                  6,
+                  4,
                   selectInput("stock_geography",
                               "Select area",
                               names(get_stock_list()),
                               width = "100%")
+                ),
+                column(
+                  4,
+                  actionButton("get_data",
+                               "Updata Data",
+                               width = "100%")
                 ),
                 column(
                   12,
