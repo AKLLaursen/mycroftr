@@ -9,9 +9,9 @@ get_stock_list <- function() {
   list(
     America = list(
       `Dow Jones Industrial Average` = "YAHOO/INDEX_DJI",
-      `S&P 500 Index` = "YAHOO/INDEX_GSPC"
-      #`NASDAQ Composite Index` = "NASDAQOMX/COMP",
-      #`Bovespa index` = "YAHOO/INDEX_BVSP",
+      `S&P 500 Index` = "YAHOO/INDEX_GSPC",
+      `Bovespa index` = "YAHOO/INDEX_BVSP"
+      #`NASDAQ Composite Index` = "NASDAQOMX/COMP"
       #`MERVAL Index` = "YAHOO/INDEX_MERV"
     ),
     Europe = list(
